@@ -1,1 +1,4 @@
-autor. edwin y diana
+autor. edwin
+
+
+version 1.1
