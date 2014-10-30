@@ -1,0 +1,64 @@
+var five = require("johnny-five"), 
+    board = new five.Board();
+
+//var analog = new five.Pin("A0");
+//var digital = new five.Pin(13);
+
+
+
+
+
+
+board.on("ready", function() {
+
+
+var sif1=0;
+
+var pin = new five.Pin("A0");
+
+pin.read(function(value) {
+  console.log(value);
+
+
+if(value>600)
+
+{
+
+var servo = new five.Servo({
+  pin: 11, 
+});
+
+servo.to(90);
+console.log(0);
+sif1=1;
+
+
+}
+
+if(sif1==1)
+{
+
+delay: 500,
+	
+var servo = new five.Servo({
+  pin: 11, 
+});
+	
+servo.to(0);
+
+}
+
+
+});
+
+
+
+
+
+// Set horn to 45degrees
+//servo.min();
+
+
+
+
+});
