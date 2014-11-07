@@ -1,0 +1,94 @@
+var five = require("johnny-five"), 
+    board = new five.Board();
+
+//var analog = new five.Pin("A0");
+//var digital = new five.Pin(13);
+
+
+
+
+
+
+board.on("ready", function() {
+
+
+
+var sif1=0; //variable bandera
+var ampg=0;  //amplificar lectura galga y guardar
+
+
+var pin = new five.Pin("A0");
+
+pin.read(function(value) {
+	ampg=value*17;
+  console.log(ampg);
+ // delay: 250,
+
+var servo = new five.Servo({      //declaracion de servo 
+  pin: 11, 
+});
+
+var servo2 = new five.Servo({      //declaracion de servo 2
+  pin: 10, 
+});
+
+
+
+//ningun peso 
+if(value>0 && value<600)
+{
+
+servo.to(0);
+//console.log(0);    //visyaliza en la consola 
+sif1=1;
+
+}
+
+
+
+
+
+//moneda $100
+
+if(value>0 && value<600)
+{
+
+servo.to(90);
+//console.log(0);    //visyaliza en la consola 
+sif1=1;
+
+}
+
+
+//moneda $500
+if(value>601 && value<700)
+{
+
+servo.to(0);
+console.log(0);    //visyaliza en la consola 
+sif1=1;
+
+}
+
+
+//moneda $1.000
+if(value<600)
+{
+
+servo.to(0);
+console.log(0);    //visyaliza en la consola 
+sif1=1;
+
+}
+
+
+
+// Set horn to 45degrees
+//servo.min();
+
+
+
+
+});
+
+});
