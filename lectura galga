@@ -76,7 +76,7 @@ if(value<600)
 {
 
 servo.to(0);
-console.log(0);    //visyaliza en la consola 
+console.log(0);    //visualiza en la consola 
 sif1=1;
 
 }
